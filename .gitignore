@@ -1,0 +1,6 @@
+*.sh.e*
+*.sh.o*
+*.o
+*.bak
+testAdvect
+.vscode
