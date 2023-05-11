@@ -12,10 +12,16 @@ r=100
 M=1000 # may need to be bigger
 N=$M
 
-ps="1 3 6 12 24 48"
+numactl1="numactl --cpunodebind=0 --membind=0"
+
+echo OMP_NUM_THREADS=1 $numactl1 ./testAdvect $M $N $r
+OMP_NUM_THREADS=1 $e $numactl1 ./testAdvect $M $N $r
+echo ""
+
+ps="8 12 24 48"
 
 for p in $ps; do
-    opts= #"-P 1"
+    opts="-P 4"
     echo ""
     if [ $p -le 24 ] ; then
 	numactl="numactl --cpunodebind=0 --membind=0"

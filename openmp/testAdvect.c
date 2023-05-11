@@ -99,7 +99,7 @@ int main(int argc, char** argv) {
   getArgs(argc, argv);
 
   printf("Advection of a %dx%d global field on %d threads" 
-	 " for %d steps.\n", M, N, nprocs, r);
+	  " for %d steps.\n", M, N, nprocs, r);
   if (optX)
     printf("\tusing extra optimization methods\n");
   if (optP)
@@ -125,7 +125,7 @@ int main(int argc, char** argv) {
 
   gflops = 1.0e-09 * AdvFLOPsPerElt * M * N * r;
   printf("Advection time %.2es, GFLOPs rate=%.2e (per core %.2e)\n",
-	 t, gflops / t,  gflops / t / (P*Q)); 
+	  t, gflops / t,  gflops / t / (P*Q)); 
 
   if (verbosity > 1)
     printAdvectField(0, "final u", M+2, N+2, u, ldu);
