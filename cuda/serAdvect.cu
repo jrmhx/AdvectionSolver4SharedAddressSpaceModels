@@ -97,8 +97,7 @@ static void N2Coeff(double v, double *cm1, double *c0, double *cp1) {
 }
 
 __host__ __device__
-void updateAdvectField(int M, int N, double *u, int ldu, double *v, int ldv,
-		       double Ux, double Uy) {
+void updateAdvectField(int M, int N, double *u, int ldu, double *v, int ldv, double Ux, double Uy) {
   double cim1, ci0, cip1, cjm1, cj0, cjp1;
   N2Coeff(Ux, &cim1, &ci0, &cip1);
   N2Coeff(Uy, &cjm1, &cj0, &cjp1);
@@ -176,13 +175,13 @@ void copyFieldK(int M, int N, double *u, int ldu, double *v, int ldv) {
 // evolve advection over reps timesteps, with (u,ldu) containing the field
 void cudaAdvectSerial(int M, int N, int reps, double *u, int ldu) {
   double Ux = Velx * dt / deltax, Uy = Vely * dt / deltay;
-  int ldv = N+2; double *v;
+  int ldv = N+2; 
+  double *v;
   HANDLE_ERROR( cudaMalloc(&v, ldv*(M+2)*sizeof(double)) );
   for (int r = 0; r < reps; r++) {
     updateBoundaryNS <<<1,1>>> (N, M, u, ldu);
     updateBoundaryEW <<<1,1>>> (M, N, u, ldu);
-    updateAdvectFieldK <<<1,1>>> (M, N, &V(u,1,1), ldu, &V(v,1,1), ldv,
-				  Ux, Uy);
+    updateAdvectFieldK <<<1,1>>> (M, N, &V(u,1,1), ldu, &V(v,1,1), ldv, Ux, Uy);
     copyFieldK <<<1,1>>> (M, N, &V(v,1,1), ldv, &V(u,1,1), ldu);
   } //for(r...)
   HANDLE_ERROR( cudaFree(v) );
