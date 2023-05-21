@@ -10,7 +10,7 @@
 #include "serAdvect.h" // advection parameters
 
 static int M, N, Gx, Gy, Bx, By; // local store of problem parameters
-static int verbosity;
+// static int verbosity;
 
 //sets up parameters above
 void initParParams(int M_, int N_, int Gx_, int Gy_, int Bx_, int By_, int verb) {
@@ -20,7 +20,7 @@ void initParParams(int M_, int N_, int Gx_, int Gy_, int Bx_, int By_, int verb)
   Gy = Gy_;  
   Bx = Bx_; 
   By = By_; 
-  verbosity = verb;
+  //verbosity = verb;
 } //initParParams()
 
 
@@ -152,8 +152,8 @@ void cuda2DAdvect(int reps, double *u, int ldu) {
     // copyFieldK <<<1,1>>> (M, N, &V(v,1,1), ldv, &V(u,1,1), ldu);
 
     updateAdvectFieldKernel<<<grid, block>>>(M, N, u, ldu, v, ldv, Ux, Uy); 
-    copyFieldKernel <<<grid, block>>> (M, N, v, ldv, u, ldu); 
-    cudaDeviceSynchronize();
+    // copyFieldKernel <<<grid, block>>> (M, N, v, ldv, u, ldu); 
+    HANDLE_ERROR( cudaMemcpy(u, v, ldv*(M+2)*sizeof(double), cudaMemcpyDeviceToDevice) );
   } //for(r...)
 
   HANDLE_ERROR( cudaFree(v) );
