@@ -36,4 +36,4 @@ done
 
 exit
 
-# OMP_NUM_THREADS=24 numactl --cpunodebind=0 --membind=0 ./testAdvect 1000 1000 100
+# OMP_NUM_THREADS=9 ./testAdvect -P 3 -x 1000 1000 100
