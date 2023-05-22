@@ -152,8 +152,7 @@ void cuda2DAdvect(int reps, double *u, int ldu) {
     // copyFieldK <<<1,1>>> (M, N, &V(v,1,1), ldv, &V(u,1,1), ldu);
 
     updateAdvectFieldKernel<<<grid, block>>>(M, N, u, ldu, v, ldv, Ux, Uy); 
-    // copyFieldKernel <<<grid, block>>> (M, N, v, ldv, u, ldu); 
-    HANDLE_ERROR( cudaMemcpy(u, v, ldv*(M+2)*sizeof(double), cudaMemcpyDeviceToDevice) );
+    copyFieldKernel <<<grid, block>>> (M, N, v, ldv, u, ldu); 
   } //for(r...)
 
   HANDLE_ERROR( cudaFree(v) );
@@ -163,5 +162,20 @@ void cuda2DAdvect(int reps, double *u, int ldu) {
 
 // ... optimized parallel variant
 void cudaOptAdvect(int reps, double *u, int ldu, int w) {
+  double Ux = Velx * dt / deltax;
+  double Uy = Vely * dt / deltay;
+  int ldv = N + 2;
+  double *v;
+  HANDLE_ERROR( cudaMalloc(&v, ldv*(M+2)*sizeof(double)) );
 
+  dim3 block(Bx, By);
+  dim3 grid(Gx, Gy);
+
+  for (int r = 0; r < reps; r++) {
+    updateBoundaryNSKernel<<<grid, block>>>(M, N, u, ldu); 
+    updateBoundaryEWKernel<<<grid, block>>>(M, N, u, ldu); 
+    updateAdvectFieldKernel<<<grid, block>>>(M, N, u, ldu, v, ldv, Ux, Uy); 
+    HANDLE_ERROR( cudaMemcpy(u, v, ldv*(M+2)*sizeof(double), cudaMemcpyDeviceToDevice) );
+  } //for(r...)
+  HANDLE_ERROR( cudaFree(v) );
 } //cudaOptAdvect()
