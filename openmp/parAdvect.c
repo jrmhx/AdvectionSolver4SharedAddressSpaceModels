@@ -76,10 +76,6 @@ void omp1dAdvect(int reps, double *u, int ldu) {
   free(v);
 } //omp1dAdvect()
 
-// static void newCopyField(int M0, int N0, int M_loc, int N_loc, double *v, int ldv, double *u, int ldu) {
-//   memcpy(&V(u, M0+1, N0+1), &V(v, M0+1, N0+1), M_loc*N_loc*sizeof(double));
-// } //omp1dCopyField()
-
 // ... using 2D parallelization
 void omp2dAdvect(int reps, double *u, int ldu) {
   int i, j;
@@ -115,8 +111,6 @@ void omp2dAdvect(int reps, double *u, int ldu) {
       //printf("updateAdvectField thread %d: %d %d %d %d\n", thread_id, M0, M_loc, N0, N_loc);
       #pragma omp barrier
       copyField(M_loc, N_loc, &V(v, M0+1, N0+1), ldv, &V(u, M0+1, N0+1), ldu);
-      // memcpy(&V(u, M0+1, N0+1), &V(v, M0+1, N0+1), M_loc*N_loc*sizeof(double));
-      // newCopyField(M0, N0, M_loc, N_loc, v, ldv, u, ldu);
       //printf("copyField thread %d: %d %d %d %d\n", thread_id, M0, M_loc, N0, N_loc);
       #pragma omp barrier
     } //for (r...)
