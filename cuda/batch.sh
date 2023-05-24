@@ -1,6 +1,8 @@
-# ./testAdvect -g 32,32 -b 32,32 -d 3 4096 4096 10
+./testAdvect -g 32,32 -b 32,32 -d 3 4096 4096 10
 
-# ./testAdvect -g 32,32 -b 32,32 -o -d 3 4096 4096 10
+./testAdvect -g 32,32 -b 32,32 -o -d 3 4096 4096 10
+
+./testAdvect -g 256,256 -b 16,16 -o -d 3 4096 4096 10
 
 # ./testAdvect -h 4096 4096 10
 

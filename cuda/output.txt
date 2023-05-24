@@ -1,80 +1,25 @@
-   --- General Information for device 0 ---
-Name:  GeForce RTX 2080 Ti
-Compute capability:  7.5
-Clock rate:  1665000
-Device copy overlap:  Enabled
-Kernel execution timeout :  Disabled
-   --- Memory Information for device 0 ---
-Total global mem:  11554717696
-Total constant Mem:  65536
-Max mem pitch:  2147483647
-Texture Alignment:  512
-   --- MP Information for device 0 ---
-Multiprocessor count:  68
-Shared mem per block:  49152
-Registers per block:  65536
-Threads in warp:  32
-Max threads per block:  1024
-Max thread dimensions:  (1024, 1024, 64)
-Max grid dimensions:  (2147483647, 65535, 65535)
+Advection of a 4096x4096 global field on GPU 3 for 10 steps.
+	using 32x32 blocks of 32x32 threads (2D decomposition)
+Advection time 1.78e-01s, GFLOPs rate=1.89e+01
+Copy times: host-device 8.46e-02s, device-host 8.15e-02s
+Avg error of final field:  4.678e-09
+Max error of final field:  1.128e-08
+Advection of a 4096x4096 global field on GPU 3 for 10 steps.
+	using optimizations (Gx,Gy=32,32 Bx,By=32,32 w=0)
+Advection time 2.05e-02s, GFLOPs rate=1.64e+02
+Copy times: host-device 8.47e-02s, device-host 8.21e-02s
+Avg error of final field:  4.678e-09
+Max error of final field:  1.128e-08
 
-   --- General Information for device 1 ---
-Name:  GeForce RTX 2080 Ti
-Compute capability:  7.5
-Clock rate:  1665000
-Device copy overlap:  Enabled
-Kernel execution timeout :  Disabled
-   --- Memory Information for device 1 ---
-Total global mem:  11554717696
-Total constant Mem:  65536
-Max mem pitch:  2147483647
-Texture Alignment:  512
-   --- MP Information for device 1 ---
-Multiprocessor count:  68
-Shared mem per block:  49152
-Registers per block:  65536
-Threads in warp:  32
-Max threads per block:  1024
-Max thread dimensions:  (1024, 1024, 64)
-Max grid dimensions:  (2147483647, 65535, 65535)
-
-   --- General Information for device 2 ---
-Name:  GeForce RTX 2080 Ti
-Compute capability:  7.5
-Clock rate:  1590000
-Device copy overlap:  Enabled
-Kernel execution timeout :  Disabled
-   --- Memory Information for device 2 ---
-Total global mem:  11554717696
-Total constant Mem:  65536
-Max mem pitch:  2147483647
-Texture Alignment:  512
-   --- MP Information for device 2 ---
-Multiprocessor count:  68
-Shared mem per block:  49152
-Registers per block:  65536
-Threads in warp:  32
-Max threads per block:  1024
-Max thread dimensions:  (1024, 1024, 64)
-Max grid dimensions:  (2147483647, 65535, 65535)
-
-   --- General Information for device 3 ---
-Name:  GeForce RTX 2080 Ti
-Compute capability:  7.5
-Clock rate:  1590000
-Device copy overlap:  Enabled
-Kernel execution timeout :  Disabled
-   --- Memory Information for device 3 ---
-Total global mem:  11554717696
-Total constant Mem:  65536
-Max mem pitch:  2147483647
-Texture Alignment:  512
-   --- MP Information for device 3 ---
-Multiprocessor count:  68
-Shared mem per block:  49152
-Registers per block:  65536
-Threads in warp:  32
-Max threads per block:  1024
-Max thread dimensions:  (1024, 1024, 64)
-Max grid dimensions:  (2147483647, 65535, 65535)
-
+Advection of a 1000x1000 global field on GPU 3 for 1 steps.
+	using 10x10 blocks of 16x16 threads (2D decomposition)
+Advection time 2.28e-03s, GFLOPs rate=8.76e+00
+Copy times: host-device 4.50e-03s, device-host 5.02e-03s
+Avg error of final field:  3.215e-08
+Max error of final field:  7.751e-08
+Advection of a 1000x1000 global field on GPU 3 for 1 steps.
+	using optimizations (Gx,Gy=10,10 Bx,By=16,16 w=0)
+Advection time 1.43e-03s, GFLOPs rate=1.40e+01
+Copy times: host-device 4.52e-03s, device-host 5.12e-03s
+Avg error of final field:  1.151e-03
+Max error of final field:  8.387e-01
