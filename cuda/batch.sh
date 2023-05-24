@@ -17,3 +17,8 @@
 ./testAdvect -g 10,10 -b 16,16 -d 3 1000 1000
 
 ./testAdvect -g 10,10 -b 16,16 -o -d 3 1000 1000
+
+# ./testAdvect -g 1,1 -b 3,3 -d 3 10 10 1
+
+# ./testAdvect -g 1,1 -b 3,3 -d 3 -o 10 10 1
+
