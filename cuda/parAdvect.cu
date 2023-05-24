@@ -61,22 +61,17 @@ void myCopyField(int M, int N, double *v, int ldv, double *u, int ldu) {
 }
 
 __global__ void updateBoundaryNSKernel(int M, int N, double *u, int ldu) {
-  // int j = blockIdx.y * blockDim.y + threadIdx.y;
-  // int i = blockIdx.x * blockDim.x + threadIdx.x;
-  // int j = blockIdx.y * blockDim.y + threadIdx.y;
   int xDim = blockDim.x * gridDim.x;
   int yDim = blockDim.y * gridDim.y;
   int x = blockIdx.x * blockDim.x + threadIdx.x;
   int y = blockIdx.y * blockDim.y + threadIdx.y;
-  int j = x*xDim + y; // map 2d thread pool in to 1d fashion
+  int j = x*yDim + y; // map 2d thread pool in to 1d fashion
+  //printf("xDim = %d, yDim = %d, x = %d, y = %d, j = %d\n", xDim, yDim, x, y, j);
   
   while ( j < N + 2) {
-    // printf("M, %d, N: %d, j: %d\n",M, N, j);
-    // printf("(0, %d) = (%d, %d)\n", j, M, j);
-    // printf("(%d, %d) = (1, %d)\n", M+1, j, j);
-    // printf("\n");
     V(u, 0, j) = V(u, M, j);
     V(u, M+1, j) = V(u, 1, j);
+    //printf("j = %d\n", j);
     j += xDim * yDim;
   }
 }
@@ -86,15 +81,12 @@ __global__ void updateBoundaryEWKernel(int M, int N, double *u, int ldu) {
   int yDim = blockDim.y * gridDim.y;
   int x = blockIdx.x * blockDim.x + threadIdx.x;
   int y = blockIdx.y * blockDim.y + threadIdx.y;
-  int i = x*xDim + y;
+  int i = x*yDim + y;
   
   while (i < M + 2) {
-    // printf("M, %d, N: %d, i: %d\n",M, N, i);
-    // printf("(%d, 0) = (%d, %d)\n", i, i, N);
-    // printf("(%d, %d) = (%d, 1)\n", i, N+1, i);
-    // printf("\n");
     V(u, i, 0) = V(u, i, N);
     V(u, i, N+1) = V(u, i, 1);
+    //printf("i = %d\n", i);
     i += xDim * yDim;
   }
 }
@@ -330,7 +322,6 @@ void cudaOptAdvect(int reps, double *u, int ldu, int w) {
         exit(0);
       }
       updateAdvectFieldOpt1<<<grid, block, sharedMemSize>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
-      //updateAdvectFieldOpt3<<<grid, block, sharedMemSize>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
     } else {
       // updateAdvectFieldOpt2<<<grid, block>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
 

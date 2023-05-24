@@ -1,0 +1,672 @@
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 2x512 threads (2D decomposition)
+Advection time 2.46e-02s, GFLOPs rate=1.36e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 4x256 threads (2D decomposition)
+Advection time 2.71e-02s, GFLOPs rate=1.24e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 8x128 threads (2D decomposition)
+Advection time 3.81e-02s, GFLOPs rate=8.81e+00
+Copy times: host-device 8.48e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 16x64 threads (2D decomposition)
+Advection time 4.34e-02s, GFLOPs rate=7.73e+00
+Copy times: host-device 8.46e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 32x32 threads (2D decomposition)
+Advection time 5.50e-02s, GFLOPs rate=6.10e+00
+Copy times: host-device 8.46e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 64x16 threads (2D decomposition)
+Advection time 5.64e-02s, GFLOPs rate=5.95e+00
+Copy times: host-device 8.49e-02s, device-host 8.15e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 128x8 threads (2D decomposition)
+Advection time 5.67e-02s, GFLOPs rate=5.92e+00
+Copy times: host-device 8.46e-02s, device-host 8.16e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 256x4 threads (2D decomposition)
+Advection time 5.77e-02s, GFLOPs rate=5.81e+00
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x4 blocks of 512x2 threads (2D decomposition)
+Advection time 5.74e-02s, GFLOPs rate=5.84e+00
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 1x512 threads (2D decomposition)
+Advection time 1.40e-02s, GFLOPs rate=2.40e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 2x256 threads (2D decomposition)
+Advection time 1.33e-02s, GFLOPs rate=2.52e+01
+Copy times: host-device 8.46e-02s, device-host 8.17e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 4x128 threads (2D decomposition)
+Advection time 1.40e-02s, GFLOPs rate=2.39e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 8x64 threads (2D decomposition)
+Advection time 1.62e-02s, GFLOPs rate=2.07e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 16x32 threads (2D decomposition)
+Advection time 2.64e-02s, GFLOPs rate=1.27e+01
+Copy times: host-device 8.46e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 32x16 threads (2D decomposition)
+Advection time 3.21e-02s, GFLOPs rate=1.04e+01
+Copy times: host-device 8.48e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 64x8 threads (2D decomposition)
+Advection time 3.30e-02s, GFLOPs rate=1.02e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 128x4 threads (2D decomposition)
+Advection time 3.20e-02s, GFLOPs rate=1.05e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 256x2 threads (2D decomposition)
+Advection time 2.99e-02s, GFLOPs rate=1.12e+01
+Copy times: host-device 8.47e-02s, device-host 8.15e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x8 blocks of 512x1 threads (2D decomposition)
+Advection time 2.86e-02s, GFLOPs rate=1.17e+01
+Copy times: host-device 8.46e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 1x256 threads (2D decomposition)
+Advection time 8.55e-03s, GFLOPs rate=3.92e+01
+Copy times: host-device 8.47e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 2x128 threads (2D decomposition)
+Advection time 8.16e-03s, GFLOPs rate=4.11e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 4x64 threads (2D decomposition)
+Advection time 7.83e-03s, GFLOPs rate=4.28e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 8x32 threads (2D decomposition)
+Advection time 9.69e-03s, GFLOPs rate=3.46e+01
+Copy times: host-device 8.46e-02s, device-host 8.15e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 16x16 threads (2D decomposition)
+Advection time 1.14e-02s, GFLOPs rate=2.93e+01
+Copy times: host-device 8.46e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 32x8 threads (2D decomposition)
+Advection time 1.77e-02s, GFLOPs rate=1.89e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 64x4 threads (2D decomposition)
+Advection time 2.11e-02s, GFLOPs rate=1.59e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 128x2 threads (2D decomposition)
+Advection time 2.04e-02s, GFLOPs rate=1.65e+01
+Copy times: host-device 8.46e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 1x16 blocks of 256x1 threads (2D decomposition)
+Advection time 1.82e-02s, GFLOPs rate=1.84e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 2x512 threads (2D decomposition)
+Advection time 2.24e-02s, GFLOPs rate=1.50e+01
+Copy times: host-device 8.47e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 4x256 threads (2D decomposition)
+Advection time 3.33e-02s, GFLOPs rate=1.01e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 8x128 threads (2D decomposition)
+Advection time 5.42e-02s, GFLOPs rate=6.19e+00
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 16x64 threads (2D decomposition)
+Advection time 5.46e-02s, GFLOPs rate=6.14e+00
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 32x32 threads (2D decomposition)
+Advection time 5.66e-02s, GFLOPs rate=5.93e+00
+Copy times: host-device 8.48e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 64x16 threads (2D decomposition)
+Advection time 5.79e-02s, GFLOPs rate=5.80e+00
+Copy times: host-device 8.46e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 128x8 threads (2D decomposition)
+Advection time 4.73e-02s, GFLOPs rate=7.09e+00
+Copy times: host-device 8.46e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 256x4 threads (2D decomposition)
+Advection time 5.54e-02s, GFLOPs rate=6.05e+00
+Copy times: host-device 8.45e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x2 blocks of 512x2 threads (2D decomposition)
+Advection time 4.80e-02s, GFLOPs rate=6.99e+00
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 1x512 threads (2D decomposition)
+Advection time 1.11e-02s, GFLOPs rate=3.02e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 2x256 threads (2D decomposition)
+Advection time 1.37e-02s, GFLOPs rate=2.44e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 4x128 threads (2D decomposition)
+Advection time 1.62e-02s, GFLOPs rate=2.07e+01
+Copy times: host-device 8.47e-02s, device-host 8.13e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 8x64 threads (2D decomposition)
+Advection time 2.69e-02s, GFLOPs rate=1.25e+01
+Copy times: host-device 8.47e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 16x32 threads (2D decomposition)
+Advection time 2.70e-02s, GFLOPs rate=1.24e+01
+Copy times: host-device 8.47e-02s, device-host 8.15e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 32x16 threads (2D decomposition)
+Advection time 3.25e-02s, GFLOPs rate=1.03e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 64x8 threads (2D decomposition)
+Advection time 3.10e-02s, GFLOPs rate=1.08e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 128x4 threads (2D decomposition)
+Advection time 3.02e-02s, GFLOPs rate=1.11e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 256x2 threads (2D decomposition)
+Advection time 2.96e-02s, GFLOPs rate=1.13e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x4 blocks of 512x1 threads (2D decomposition)
+Advection time 2.43e-02s, GFLOPs rate=1.38e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 1x256 threads (2D decomposition)
+Advection time 8.23e-03s, GFLOPs rate=4.08e+01
+Copy times: host-device 8.47e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 2x128 threads (2D decomposition)
+Advection time 7.74e-03s, GFLOPs rate=4.33e+01
+Copy times: host-device 8.46e-02s, device-host 8.16e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 4x64 threads (2D decomposition)
+Advection time 8.55e-03s, GFLOPs rate=3.92e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 8x32 threads (2D decomposition)
+Advection time 1.43e-02s, GFLOPs rate=2.35e+01
+Copy times: host-device 8.47e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 16x16 threads (2D decomposition)
+Advection time 1.40e-02s, GFLOPs rate=2.40e+01
+Copy times: host-device 8.46e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 32x8 threads (2D decomposition)
+Advection time 2.02e-02s, GFLOPs rate=1.66e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 64x4 threads (2D decomposition)
+Advection time 2.10e-02s, GFLOPs rate=1.60e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 128x2 threads (2D decomposition)
+Advection time 1.76e-02s, GFLOPs rate=1.90e+01
+Copy times: host-device 8.46e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 2x8 blocks of 256x1 threads (2D decomposition)
+Advection time 1.46e-02s, GFLOPs rate=2.30e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 2x512 threads (2D decomposition)
+Advection time 2.76e-02s, GFLOPs rate=1.21e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 4x256 threads (2D decomposition)
+Advection time 5.20e-02s, GFLOPs rate=6.45e+00
+Copy times: host-device 8.47e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 8x128 threads (2D decomposition)
+Advection time 4.65e-02s, GFLOPs rate=7.22e+00
+Copy times: host-device 8.47e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 16x64 threads (2D decomposition)
+Advection time 4.50e-02s, GFLOPs rate=7.46e+00
+Copy times: host-device 8.47e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 32x32 threads (2D decomposition)
+Advection time 5.57e-02s, GFLOPs rate=6.03e+00
+Copy times: host-device 8.47e-02s, device-host 8.13e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 64x16 threads (2D decomposition)
+Advection time 5.72e-02s, GFLOPs rate=5.87e+00
+Copy times: host-device 8.48e-02s, device-host 8.17e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 128x8 threads (2D decomposition)
+Advection time 5.86e-02s, GFLOPs rate=5.73e+00
+Copy times: host-device 8.46e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 256x4 threads (2D decomposition)
+Advection time 4.31e-02s, GFLOPs rate=7.79e+00
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x1 blocks of 512x2 threads (2D decomposition)
+Advection time 4.72e-02s, GFLOPs rate=7.11e+00
+Copy times: host-device 8.46e-02s, device-host 8.17e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 1x512 threads (2D decomposition)
+Advection time 1.41e-02s, GFLOPs rate=2.38e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 2x256 threads (2D decomposition)
+Advection time 1.60e-02s, GFLOPs rate=2.10e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 4x128 threads (2D decomposition)
+Advection time 2.62e-02s, GFLOPs rate=1.28e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 8x64 threads (2D decomposition)
+Advection time 2.86e-02s, GFLOPs rate=1.17e+01
+Copy times: host-device 8.46e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 16x32 threads (2D decomposition)
+Advection time 2.64e-02s, GFLOPs rate=1.27e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 32x16 threads (2D decomposition)
+Advection time 2.99e-02s, GFLOPs rate=1.12e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 64x8 threads (2D decomposition)
+Advection time 2.96e-02s, GFLOPs rate=1.13e+01
+Copy times: host-device 8.47e-02s, device-host 8.15e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 128x4 threads (2D decomposition)
+Advection time 2.86e-02s, GFLOPs rate=1.18e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 256x2 threads (2D decomposition)
+Advection time 2.63e-02s, GFLOPs rate=1.28e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x2 blocks of 512x1 threads (2D decomposition)
+Advection time 2.28e-02s, GFLOPs rate=1.47e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 1x256 threads (2D decomposition)
+Advection time 7.71e-03s, GFLOPs rate=4.35e+01
+Copy times: host-device 8.46e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 2x128 threads (2D decomposition)
+Advection time 8.22e-03s, GFLOPs rate=4.08e+01
+Copy times: host-device 8.47e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 4x64 threads (2D decomposition)
+Advection time 1.43e-02s, GFLOPs rate=2.34e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 8x32 threads (2D decomposition)
+Advection time 1.36e-02s, GFLOPs rate=2.47e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 16x16 threads (2D decomposition)
+Advection time 1.31e-02s, GFLOPs rate=2.55e+01
+Copy times: host-device 8.46e-02s, device-host 8.16e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 32x8 threads (2D decomposition)
+Advection time 1.85e-02s, GFLOPs rate=1.81e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 64x4 threads (2D decomposition)
+Advection time 1.73e-02s, GFLOPs rate=1.94e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 128x2 threads (2D decomposition)
+Advection time 1.50e-02s, GFLOPs rate=2.24e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 4x4 blocks of 256x1 threads (2D decomposition)
+Advection time 1.29e-02s, GFLOPs rate=2.61e+01
+Copy times: host-device 8.48e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 1x512 threads (2D decomposition)
+Advection time 1.45e-02s, GFLOPs rate=2.31e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 2x256 threads (2D decomposition)
+Advection time 2.80e-02s, GFLOPs rate=1.20e+01
+Copy times: host-device 8.48e-02s, device-host 8.13e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 4x128 threads (2D decomposition)
+Advection time 2.22e-02s, GFLOPs rate=1.51e+01
+Copy times: host-device 8.46e-02s, device-host 8.15e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 8x64 threads (2D decomposition)
+Advection time 2.72e-02s, GFLOPs rate=1.23e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 16x32 threads (2D decomposition)
+Advection time 2.84e-02s, GFLOPs rate=1.18e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 32x16 threads (2D decomposition)
+Advection time 2.76e-02s, GFLOPs rate=1.22e+01
+Copy times: host-device 8.47e-02s, device-host 8.16e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 64x8 threads (2D decomposition)
+Advection time 2.82e-02s, GFLOPs rate=1.19e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 128x4 threads (2D decomposition)
+Advection time 2.06e-02s, GFLOPs rate=1.62e+01
+Copy times: host-device 8.49e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 256x2 threads (2D decomposition)
+Advection time 2.13e-02s, GFLOPs rate=1.58e+01
+Copy times: host-device 8.46e-02s, device-host 8.16e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x1 blocks of 512x1 threads (2D decomposition)
+Advection time 1.80e-02s, GFLOPs rate=1.86e+01
+Copy times: host-device 8.48e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 1x256 threads (2D decomposition)
+Advection time 7.84e-03s, GFLOPs rate=4.28e+01
+Copy times: host-device 8.46e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 2x128 threads (2D decomposition)
+Advection time 1.41e-02s, GFLOPs rate=2.38e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 4x64 threads (2D decomposition)
+Advection time 1.30e-02s, GFLOPs rate=2.57e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 8x32 threads (2D decomposition)
+Advection time 1.37e-02s, GFLOPs rate=2.45e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 16x16 threads (2D decomposition)
+Advection time 1.45e-02s, GFLOPs rate=2.31e+01
+Copy times: host-device 8.48e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 32x8 threads (2D decomposition)
+Advection time 1.52e-02s, GFLOPs rate=2.20e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 64x4 threads (2D decomposition)
+Advection time 1.41e-02s, GFLOPs rate=2.39e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 128x2 threads (2D decomposition)
+Advection time 1.26e-02s, GFLOPs rate=2.65e+01
+Copy times: host-device 8.48e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 8x2 blocks of 256x1 threads (2D decomposition)
+Advection time 1.05e-02s, GFLOPs rate=3.19e+01
+Copy times: host-device 8.47e-02s, device-host 8.10e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 1x256 threads (2D decomposition)
+Advection time 1.33e-02s, GFLOPs rate=2.52e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 2x128 threads (2D decomposition)
+Advection time 1.41e-02s, GFLOPs rate=2.38e+01
+Copy times: host-device 8.47e-02s, device-host 8.16e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 4x64 threads (2D decomposition)
+Advection time 1.40e-02s, GFLOPs rate=2.40e+01
+Copy times: host-device 8.46e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 8x32 threads (2D decomposition)
+Advection time 1.18e-02s, GFLOPs rate=2.84e+01
+Copy times: host-device 8.50e-02s, device-host 8.13e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 16x16 threads (2D decomposition)
+Advection time 1.38e-02s, GFLOPs rate=2.44e+01
+Copy times: host-device 8.48e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 32x8 threads (2D decomposition)
+Advection time 1.47e-02s, GFLOPs rate=2.28e+01
+Copy times: host-device 8.46e-02s, device-host 8.13e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 64x4 threads (2D decomposition)
+Advection time 1.19e-02s, GFLOPs rate=2.83e+01
+Copy times: host-device 8.47e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 128x2 threads (2D decomposition)
+Advection time 1.07e-02s, GFLOPs rate=3.13e+01
+Copy times: host-device 8.46e-02s, device-host 8.11e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 16x1 blocks of 256x1 threads (2D decomposition)
+Advection time 8.95e-03s, GFLOPs rate=3.75e+01
+Copy times: host-device 8.47e-02s, device-host 8.12e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
