@@ -1,17 +1,17 @@
-# No Opt 2D
-./testAdvect -g 32,32 -b 32,32 -d 3 4096 4096 100
+# # No Opt 2D
+# ./testAdvect -g 32,32 -b 32,32 -d 3 4096 4096 1
 
-# Shared Mem Opt 2D, No Pointer Swapping
-./testAdvect -g 32,32 -b 32,32 -d 3 -o 4096 4096 100
+# # Shared Mem Opt 2D, No Pointer Swapping
+# ./testAdvect -g 32,32 -b 32,32 -d 3 -o 4096 4096 100
 
-# Shared Mem Opt 2D, With Pointer Swapping
-./testAdvect -g 32,32 -b 32,32 -d 3 -o -w 1 4096 4096 100
+# # Shared Mem Opt 2D, With Pointer Swapping
+# ./testAdvect -g 32,32 -b 32,32 -d 3 -o -w 1 4096 4096 100
 
-# ./testAdvect -g 32,32 -b 32,32 -o -d 3 4096 4096 10
+# # ./testAdvect -g 32,32 -b 32,32 -o -d 3 4096 4096 10
 
-./testAdvect -h  -d 3 4096 4096 1
+# ./testAdvect -h  -d 3 4096 4096 1
 
-./testAdvect -s  -d 3 4096 4096 1
+# ./testAdvect -s  -d 3 4096 4096 1
 
 # ./testAdvect -g 2,2 -b 4,4 10 20
 
@@ -94,3 +94,13 @@
 # ./testAdvect -g 8192,2 -b 32,32 -d 3 4096 4096 10
 
 # ./testAdvect -g 16384,1 -b 32,32 -d 3 4096 4096 10
+
+
+
+#question 8
+
+./testAdvect -g 32,32 -b 32,32 -d 3 4096 4096 1
+
+# ./testAdvect -g 32,32 -b 32,32 -d 3 -o 4096 4096 1
+
+./testAdvect -g 32,32 -b 32,32 -d 3 -o -w 1 4096 4096 1

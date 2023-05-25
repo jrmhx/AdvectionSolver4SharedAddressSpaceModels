@@ -1,0 +1,13 @@
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using 32x32 blocks of 32x32 threads (2D decomposition)
+Advection time 1.88e-02s, GFLOPs rate=1.78e+01
+Copy times: host-device 8.47e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
+Advection of a 4096x4096 global field on GPU 3 for 1 steps.
+	using optimizations (Gx,Gy=32,32 Bx,By=32,32 w=1)
+w=1, Using pointer swapping optimization
+Advection time 3.60e-03s, GFLOPs rate=9.31e+01
+Copy times: host-device 8.47e-02s, device-host 8.14e-02s
+Avg error of final field:  4.678e-10
+Max error of final field:  1.128e-09
