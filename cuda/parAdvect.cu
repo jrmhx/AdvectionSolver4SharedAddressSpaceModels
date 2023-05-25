@@ -305,7 +305,7 @@ void cudaOptAdvect(int reps, double *u, int ldu, int w) {
   for (int r = 0; r < reps; r++) {
     updateBoundaryNSKernel<<<grid, block>>>(M, N, u, ldu); 
     updateBoundaryEWKernel<<<grid, block>>>(M, N, u, ldu);
-    bool isOpt1 = true;
+    bool isOpt1 = false;
     if (M > Gx*Bx){
       if (M % (M / (Gx*Bx)) != 0 ){
         isOpt1 = false;
