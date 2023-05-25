@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -q express
 #PBS -j oe
-#PBS -l walltime=00:01:00,mem=4GB
+#PBS -l walltime=00:01:00,mem=32GB
 #PBS -l wd
 #PBS -l ncpus=48
 #
