@@ -222,11 +222,16 @@ __global__ void updateAdvectFieldOpt(int M, int N, double *u, int ldu, double *v
           cim1*(cjm1*V(s,si-1,sj-1) + cj0*V(s,si-1,sj) + cjp1*V(s,si-1,sj+1)) +
           ci0 *(cjm1*V(s,si  ,sj-1) + cj0*V(s,si,  sj) + cjp1*V(s,si,  sj+1)) +
           cip1*(cjm1*V(s,si+1,sj-1) + cj0*V(s,si+1,sj) + cjp1*V(s,si+1,sj+1));
-      //__syncthreads();
+      __syncthreads();
       uj += blockDim.y * gridDim.y;
     }
     ui += blockDim.x * gridDim.x;
   }
+}
+
+__global__ void updateAdvectFieldOpt2 (int M, int N, double *u, int ldu, double *v, int ldv, double Ux, double Uy)
+{
+  extern __shared__ double s[];
 }
 
 // evolve advection over reps timesteps, with (u,ldu) containing the field
@@ -237,9 +242,10 @@ void cuda2DAdvect(int reps, double *u, int ldu) {
   int ldv = N + 2;
   double *v;
   HANDLE_ERROR( cudaMalloc(&v, ldv*(M+2)*sizeof(double)) );
-
+  // have Bx and By pre-defined
+  // Bx = 32, By = ??
   dim3 block(Bx, By);
-  dim3 grid(Gx, Gy);
+  dim3 grid((M-1+Bx)/Bx, (N-1+By)/By);
 
   for (int r = 0; r < reps; r++) {
     //test block
