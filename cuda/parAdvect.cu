@@ -288,6 +288,7 @@ void cuda2DAdvect(int reps, double *u, int ldu) {
 
 // ... optimized parallel variant
 void cudaOptAdvect(int reps, double *u, int ldu, int w) {
+  if (w==1) printf("w=%d, Using pointer swapping optimization\n", w);
   double Ux = Velx * dt / deltax;
   double Uy = Vely * dt / deltay;
   double cim1, ci0, cip1, cjm1, cj0, cjp1;
@@ -325,7 +326,7 @@ void cudaOptAdvect(int reps, double *u, int ldu, int w) {
     } else {
       // updateAdvectFieldOpt2<<<grid, block>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
 
-      int blockDimX = 32;
+      int blockDimX = 16;
       int blockDimY = 16;
       int gridDimX = (M + blockDimX - 1) / blockDimX;
       int gridDimY = (N + blockDimY - 1) / blockDimY;
@@ -334,12 +335,17 @@ void cudaOptAdvect(int reps, double *u, int ldu, int w) {
       size_t sharedMemSize = (blockDimX+2) * (blockDimY+2) * sizeof(double);
       updateAdvectFieldOpt3<<<grid, block, sharedMemSize>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
     }
-    cudaDeviceSynchronize();
-    double *tmp = u;
-    u = v;
-    v = tmp;
+    //printf("w: %d\n", w);
+    if (w == 1){
+      cudaDeviceSynchronize();
+      double *tmp = u;
+      u = v;
+      v = tmp;
+    } else {
+      copyFieldKernel <<<grid, block>>> (M, N, u, ldu, v, ldv); 
+    }
   } //for(r...)
-  if (reps % 2 == 1) {
+  if (w == 1 && reps % 2 == 1) {
     double *tmp = u;
     u = v;
     v = tmp;
