@@ -41,6 +41,7 @@ void myUpdateAdvectField(int M, int N, double *u, int ldu, double *v, int ldv, d
   N2Coeff(Uy, &cjm1, &cj0, &cjp1);
 
   for (int i=0; i < M; i++)
+  {
     for (int j=0; j < N; j++)
       {
         V(v,i,j) =
@@ -49,8 +50,7 @@ void myUpdateAdvectField(int M, int N, double *u, int ldu, double *v, int ldv, d
         cip1*(cjm1*V(u,i+1,j-1) + cj0*V(u,i+1,j) + cjp1*V(u,i+1,j+1));
         //printf("update v(%d, %d) = %.2f\n", i, j, V(v,i,j));
       }
-
-
+  }
 } //updateAdvectField() 
 
 __host__ __device__
@@ -133,55 +133,9 @@ __global__ void copyFieldKernel(int M, int N, double *v, int ldu, double *u, int
   myCopyField(M_loc, N_loc, &V(v, M0+1, N0+1), ldu, &V(u, M0+1, N0+1), ldv);
 }
 
-__global__ void updateAdvectFieldOptX(int M, int N, int lds, double *u, int ldu, double *v, int ldv, double Ux, double Uy) {
+__global__ void updateAdvectFieldOpt1(int M, int N, double *u, int ldu, double *v, int ldv, double cim1, double ci0, double cip1, double cjm1, double cj0, double cjp1) {
   extern __shared__ double s[];
-  int M0 = (M / gridDim.x) * blockIdx.x;
-  int M_loc = (blockIdx.x < gridDim.x - 1) ? (M / gridDim.x) : (M - M0);
-
-  int N0 = (N / gridDim.y) * blockIdx.y;
-  int N_loc = (blockIdx.y < gridDim.y - 1) ? (N / gridDim.y) : (N - N0);
-
-  // copy u to shared memory
-
-  int i = threadIdx.x;
-  int j = threadIdx.y;
-
-  if (i == 0 && j == 0) {
-    //printf("M_loc %d, N_loc %d\n", M_loc, N_loc);
-    myCopyField(M_loc+2, N_loc+2, &V(u, M0, N0), ldu, s, lds);
-  }
-  __syncthreads();
-
-  // printf("test\n");
-  // update v
-
-  double cim1, ci0, cip1, cjm1, cj0, cjp1;
-  N2Coeff(Ux, &cim1, &ci0, &cip1);
-  N2Coeff(Uy, &cjm1, &cj0, &cjp1);
-
-  int si = i + 1;
-  int vi = si + (M / gridDim.x) * blockIdx.x;
-  while (si <= M_loc) {
-    int sj = j + 1;
-    int vj = sj + (N / gridDim.y) * blockIdx.y;
-    while (sj <= N_loc) {
-      // printf("M_loc: %d, N_loc: %d (%d, %d) = (%d, %d)\n",M_loc, N_loc, si, sj, vi, vj);
-      V(v,vi,vj) =
-        cim1*(cjm1*V(s,si-1,sj-1) + cj0*V(s,si-1,sj) + cjp1*V(s,si-1,sj+1)) +
-        ci0 *(cjm1*V(s,si  ,sj-1) + cj0*V(s,si,  sj) + cjp1*V(s,si,  sj+1)) +
-        cip1*(cjm1*V(s,si+1,sj-1) + cj0*V(s,si+1,sj) + cjp1*V(s,si+1,sj+1));
-      sj += blockDim.y;
-      vj += blockDim.y;
-    }
-    si += blockDim.x;
-    vi += blockDim.x;
-  }
-
-}
-
-__global__ void updateAdvectFieldOpt(int M, int N, double *u, int ldu, double *v, int ldv, double Ux, double Uy) {
-  extern __shared__ double s[];
-  int lds = blockDim.x + 2;
+  int lds = blockDim.y + 2;
 
   int si = threadIdx.x + 1;
   int sj = threadIdx.y + 1;
@@ -190,48 +144,121 @@ __global__ void updateAdvectFieldOpt(int M, int N, double *u, int ldu, double *v
   while (ui <= M){
     int uj = blockIdx.y * blockDim.y + sj;
     while (uj <= N){
+      // printf("ui: %d, uj: %d\n", ui, uj);
       V(s, si, sj) = V(u, ui, uj);
-      // __syncthreads();
       // update shared memo boundary
       if (si == 1) {
-        V(s,0, sj) = V(u,ui-1, uj);
+        V(s, si-1, sj) = V(u, ui-1, uj);
         if (sj == 1) {
-          V(s,0, 0) = V(u,ui-1, uj-1);
-        } else if (sj == blockDim.y) {
-          V(s,0, blockDim.y+1) = V(u,ui-1, uj+1);
+          V(s, si-1, sj-1) = V(u, ui-1, uj-1);
         }
-      } else if (si == blockDim.x) {
-        V(s,blockDim.x+1, sj) = V(u,ui+1, uj);
+        if (sj == blockDim.y || uj == N) {
+          V(s, si-1, sj+1) = V(u, ui-1, uj+1);
+        }
+      } 
+      if (si == blockDim.x || ui == M) {
+        V(s, si+1, sj) = V(u, ui+1, uj);
         if (sj == 1) {
-          V(s,blockDim.x+1, 0) = V(u,ui+1, uj-1);
-        } else if (sj == blockDim.y) {
-          V(s,blockDim.x+1, blockDim.y+1) = V(u,ui+1, uj+1);
-        }
+          V(s, si+1, sj-1) = V(u, ui+1, uj-1);
+        } 
+        if (sj == blockDim.y || uj == N) {
+          V(s, si+1, sj+1) = V(u, ui+1, uj+1);
+        } 
       }
       if (sj == 1) {
-        V(s,si, 0) = V(u,ui, uj-1);
-      } else if (sj == blockDim.y) {
-        V(s,si, blockDim.y+1) = V(u,ui, uj+1);
+        V(s, si, sj-1) = V(u, ui, uj-1);
+      } 
+      if (sj == blockDim.y || uj == N) {
+        V(s, si, sj+1) = V(u, ui, uj+1);
       }
       __syncthreads();
       // update v
-      double cim1, ci0, cip1, cjm1, cj0, cjp1;
-      N2Coeff(Ux, &cim1, &ci0, &cip1);
-      N2Coeff(Uy, &cjm1, &cj0, &cjp1);
-      V(v,ui ,uj) =
+      V(v, ui ,uj) =
           cim1*(cjm1*V(s,si-1,sj-1) + cj0*V(s,si-1,sj) + cjp1*V(s,si-1,sj+1)) +
           ci0 *(cjm1*V(s,si  ,sj-1) + cj0*V(s,si,  sj) + cjp1*V(s,si,  sj+1)) +
           cip1*(cjm1*V(s,si+1,sj-1) + cj0*V(s,si+1,sj) + cjp1*V(s,si+1,sj+1));
-      __syncthreads();
       uj += blockDim.y * gridDim.y;
     }
+    //__syncthreads();
     ui += blockDim.x * gridDim.x;
   }
 }
 
-__global__ void updateAdvectFieldOpt2 (int M, int N, double *u, int ldu, double *v, int ldv, double Ux, double Uy)
-{
+__global__ void updateAdvectFieldOpt2(int M, int N, double *u, int ldu, double *v, int ldv, double cim1, double ci0, double cip1, double cjm1, double cj0, double cjp1) {
+  // Compute unique thread indices within the grid
+  int xDim = blockDim.x * gridDim.x;
+  int yDim = blockDim.y * gridDim.y;
+  int x = blockIdx.x * blockDim.x + threadIdx.x;
+  int y = blockIdx.y * blockDim.y + threadIdx.y;
+
+  int M0 = (M / xDim) * x;
+  int M_loc = (x < xDim - 1) ? (M / xDim) : (M - M0);
+
+  int N0 = (N / yDim) * y;
+  int N_loc = (y < yDim - 1) ? (N / yDim) : (N - N0);
+  //myUpdateAdvectField(M_loc, N_loc, &V(u, M0+1, N0+1), ldu, &V(v, M0+1, N0+1), ldv, Ux, Uy);
+  u = &V(u, M0+1, N0+1);
+  v = &V(v, M0+1, N0+1);
+  for (int i=0; i < M_loc; i++)
+  {
+    for (int j=0; j < N_loc; j++)
+      {
+        V(v,i,j) =
+        cim1*(cjm1*V(u,i-1,j-1) + cj0*V(u,i-1,j) + cjp1*V(u,i-1,j+1)) +
+        ci0 *(cjm1*V(u,i  ,j-1) + cj0*V(u,i,  j) + cjp1*V(u,i,  j+1)) +
+        cip1*(cjm1*V(u,i+1,j-1) + cj0*V(u,i+1,j) + cjp1*V(u,i+1,j+1));
+        //printf("update v(%d, %d) = %.2f\n", i, j, V(v,i,j));
+      }
+  }
+}
+
+
+__global__ void updateAdvectFieldOpt3(int M, int N, double *u, int ldu, double *v, int ldv, double cim1, double ci0, double cip1, double cjm1, double cj0, double cjp1) {
   extern __shared__ double s[];
+  int lds = blockDim.y + 2;
+
+  int si = threadIdx.x + 1;
+  int sj = threadIdx.y + 1;
+  int ui = blockIdx.x * blockDim.x + si;
+  int uj = blockIdx.y * blockDim.y + sj;
+
+  if (ui <= M && uj <= N)
+  {
+    V(s, si, sj) = V(u, ui, uj);
+      // __syncthreads();
+      // update shared memo boundary
+      if (si == 1) {
+        V(s, si-1, sj) = V(u, ui-1, uj);
+        if (sj == 1) {
+          V(s, si-1, sj-1) = V(u, ui-1, uj-1);
+        }
+        if (sj == blockDim.y || uj == N) {
+          V(s, si-1, sj+1) = V(u, ui-1, uj+1);
+        }
+      } 
+      if (si == blockDim.x || ui == M) {
+        V(s, si+1, sj) = V(u, ui+1, uj);
+        if (sj == 1) {
+          V(s, si+1, sj-1) = V(u, ui+1, uj-1);
+        } 
+        if (sj == blockDim.y || uj == N) {
+          V(s, si+1, sj+1) = V(u, ui+1, uj+1);
+        } 
+      }
+      //__syncthreads();
+      if (sj == 1) {
+        V(s, si, sj-1) = V(u, ui, uj-1);
+      } 
+      if (sj == blockDim.y || uj == N) {
+        V(s,si, sj+1) = V(u, ui, uj+1);
+      }
+      __syncthreads();
+      // update v
+      V(v, ui ,uj) =
+          cim1*(cjm1*V(s,si-1,sj-1) + cj0*V(s,si-1,sj) + cjp1*V(s,si-1,sj+1)) +
+          ci0 *(cjm1*V(s,si  ,sj-1) + cj0*V(s,si,  sj) + cjp1*V(s,si,  sj+1)) +
+          cip1*(cjm1*V(s,si+1,sj-1) + cj0*V(s,si+1,sj) + cjp1*V(s,si+1,sj+1));
+  }
 }
 
 // evolve advection over reps timesteps, with (u,ldu) containing the field
@@ -270,12 +297,12 @@ void cuda2DAdvect(int reps, double *u, int ldu) {
 
 // ... optimized parallel variant
 void cudaOptAdvect(int reps, double *u, int ldu, int w) {
-  // if (M % (M / (Gx*Bx)) != 0 || N % (N / (Gy*By)) !=0){
-  //   printf("Please set Gx*Bx and Gy*By to be a factor of M and N respectively\n");
-  //   exit(0);
-  // }
   double Ux = Velx * dt / deltax;
   double Uy = Vely * dt / deltay;
+  double cim1, ci0, cip1, cjm1, cj0, cjp1;
+  N2Coeff(Ux, &cim1, &ci0, &cip1);
+  N2Coeff(Uy, &cjm1, &cj0, &cjp1);
+
   int ldv = N + 2;
   double *v;
   HANDLE_ERROR( cudaMalloc(&v, ldv*(M+2)*sizeof(double)) );
@@ -286,27 +313,47 @@ void cudaOptAdvect(int reps, double *u, int ldu, int w) {
   for (int r = 0; r < reps; r++) {
     updateBoundaryNSKernel<<<grid, block>>>(M, N, u, ldu); 
     updateBoundaryEWKernel<<<grid, block>>>(M, N, u, ldu);
-    size_t sharedMemSize = (Bx+2) * (By+2) * sizeof(double);
-    //assert(sharedMemSize <= MAX_SHARED_MEMO);
-    if (sharedMemSize > MAX_SHARED_MEMO) {
-      printf("sharedMemo overflow with requested sharedMemSize: %lu, please try large grid and block size\n", sharedMemSize);
-      exit(0);
+    bool isOpt1 = true;
+    if (M > Gx*Bx){
+      if (M % (M / (Gx*Bx)) != 0 ){
+        isOpt1 = false;
+      }
     }
-    updateAdvectFieldOpt<<<grid, block, sharedMemSize>>>(M, N, u, ldu, v, ldv, Ux, Uy);
-    //updateAdvectFieldKernel<<<grid, block>>>(M, N, u, ldu, v, ldv, Ux, Uy);
+    if (N > Gy*By){
+      if (N % (N / (Gy*By)) != 0 ){
+        isOpt1 = false;
+      }
+    } 
+    if (isOpt1){
+      size_t sharedMemSize = (Bx+2) * (By+2) * sizeof(double);
+      if (sharedMemSize > MAX_SHARED_MEMO) {
+        printf("sharedMemo overflow with requested sharedMemSize: %lu, please try large grid and block size\n", sharedMemSize);
+        exit(0);
+      }
+      updateAdvectFieldOpt1<<<grid, block, sharedMemSize>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
+      //updateAdvectFieldOpt3<<<grid, block, sharedMemSize>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
+    } else {
+      // updateAdvectFieldOpt2<<<grid, block>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
+
+      int blockDimX = 32;
+      int blockDimY = 16;
+      int gridDimX = (M + blockDimX - 1) / blockDimX;
+      int gridDimY = (N + blockDimY - 1) / blockDimY;
+      dim3 block(blockDimX, blockDimY);
+      dim3 grid(gridDimX, gridDimY);
+      size_t sharedMemSize = (blockDimX+2) * (blockDimY+2) * sizeof(double);
+      updateAdvectFieldOpt3<<<grid, block, sharedMemSize>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
+    }
     cudaDeviceSynchronize();
     double *tmp = u;
     u = v;
     v = tmp;
-    //HANDLE_ERROR( cudaMemcpy(u, v, ldv*(M+2)*sizeof(double), cudaMemcpyDeviceToDevice) );
-    //copyFieldKernel <<<grid, block>>> (M, N, v, ldv, u, ldu);
   } //for(r...)
   if (reps % 2 == 1) {
     double *tmp = u;
     u = v;
     v = tmp;
     HANDLE_ERROR( cudaMemcpy(u, v, ldv*(M+2)*sizeof(double), cudaMemcpyDeviceToDevice) );
-    //copyFieldKernel <<<grid, block>>> (M, N, v, ldv, u, ldu);
   }
   HANDLE_ERROR( cudaFree(v) );
 } //cudaOptAdvect()
