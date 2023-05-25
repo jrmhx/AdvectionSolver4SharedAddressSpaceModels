@@ -101,6 +101,6 @@
 
 ./testAdvect -g 32,32 -b 32,32 -d 3 4096 4096 1
 
-# ./testAdvect -g 32,32 -b 32,32 -d 3 -o 4096 4096 1
+./testAdvect -g 32,32 -b 32,32 -d 3 -o 4096 4096 1
 
 ./testAdvect -g 32,32 -b 32,32 -d 3 -o -w 1 4096 4096 1

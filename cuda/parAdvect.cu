@@ -336,15 +336,16 @@ void cudaOptAdvect(int reps, double *u, int ldu, int w) {
       updateAdvectFieldOpt3<<<grid, block, sharedMemSize>>>(M, N, u, ldu, v, ldv, cim1, ci0, cip1, cjm1, cj0, cjp1);
     }
     //printf("w: %d\n", w);
+    cudaDeviceSynchronize();
     if (w == 1){
-      cudaDeviceSynchronize();
       double *tmp = u;
       u = v;
       v = tmp;
     } else {
-      copyFieldKernel <<<grid, block>>> (M, N, u, ldu, v, ldv); 
+      cudaMemcpy(u, v, ldv*(M+2)*sizeof(double), cudaMemcpyDeviceToDevice); 
     }
   } //for(r...)
+  cudaDeviceSynchronize();
   if (w == 1 && reps % 2 == 1) {
     double *tmp = u;
     u = v;
