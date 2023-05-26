@@ -8,9 +8,9 @@
 
 e= #echo
 
-r=100
-M=1000 # may need to be bigger
-N=$M
+r=10
+M=4096
+N=4094
 
 ps="1 3 6 12 24 48"
 

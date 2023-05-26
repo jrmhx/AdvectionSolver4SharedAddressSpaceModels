@@ -40,7 +40,7 @@ static void omp1dUpdateAdvectField(double *u, int ldu, double *v, int ldv) {
   double cim1, ci0, cip1, cjm1, cj0, cjp1;
   N2Coeff(Ux, &cim1, &ci0, &cip1); N2Coeff(Uy, &cjm1, &cj0, &cjp1);
   #pragma omp for private(j) schedule(static) // performance 
-  // #pragma omp for schedule(static, 1) max corherent read
+  // #pragma omp for schedule(static, 1) // max corherent read
     for (i=0; i < M; i++)
     //#pragma omp for schedule(static, 1) // max corherent write
       for (j=0; j < N; j++)
@@ -171,3 +171,4 @@ void ompAdvectExtra(int reps, double *u, int ldu) {
   }
   free(v);
 } //ompAdvectExtra()
+

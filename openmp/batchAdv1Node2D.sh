@@ -8,7 +8,7 @@
 
 e= #echo
 
-r=100
+r=10
 M=1000 # may need to be bigger
 N=$M
 
