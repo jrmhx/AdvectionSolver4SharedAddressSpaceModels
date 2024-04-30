@@ -1,7 +1,4 @@
-# COMP4300/8300 Parallel Systems Assignment 2, 2023
 # Advection Solver For Shared Address Space Programming Models
-
-## Deadline: 26/05/2023, 5PM
 
 *(Please report any errors, omissions and ambiguities to the course lecturer)* \
 *(We may make small amendments and fixes to this document after its release; please keep an eye on the commit history after release date just in case)*
